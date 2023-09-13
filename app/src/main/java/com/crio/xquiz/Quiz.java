@@ -20,7 +20,7 @@ public class Quiz{
                 System.out.println("Quiz Name cannot be null or empty!");
             }else{
                 this.quizName=quizName;
-                this.questions=new Arraylist<Question>();
+                questions=new ArrayList<Question>();
                 this.finalScore=0;
             }
         }

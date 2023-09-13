@@ -9,19 +9,20 @@ public class Question{
     //TODO: Define the variable to store the list of text choices
         private List<String> choices;
 
-        private boolean check (String abc){
+        /*private boolean check (String abc){
+                int a=0;
                 for(String choice:choices){
                         if (choice==abc){
-                                int a=1;
+                                a=1;
                         }else{
-                                int a=0;
+                                a=0;
                         }
                 }if(a==1){
                         return false;
                 }else{
                         return true;
                 }
-        }
+        }*/
     // TODO: Create the Question class constructor 
     // use the  signature :  public Question(String questionText, List<String> choices, String answer)
     // Include the following validations
@@ -44,12 +45,20 @@ public class Question{
                         System.out.println("Choices cannot be null or empty!");
                 }else if(answer==null || answer.isEmpty()){
                         System.out.println("Answer cannot be null or empty!");
-                }else if(check(answer)){
-                        System.out.println("Answer is not present among the choices!");
-                }else{
-                        this.questionText=questionText;
-                        this.answer=answer;
-                        this.choices=choices;
+                }else if(answer!=null && answer!=""){
+                        int a=0;
+                        for(String choice:choices){
+                                if (choice==answer){
+                                a=1;
+                                }
+                                }if(a==0){
+                                System.out.println("Answer is not present among the choices!");
+                                }else{
+                                        this.questionText=questionText;
+                                        this.answer=answer;
+                                        this.choices=choices;
+                                }
+                        
                 }
         }      
     // Note: The print statements should match exactly with the one specified above, since we have test cases designed on this
@@ -61,7 +70,7 @@ public class Question{
     }
     //TODO: Create the getter method : public String getQuestionText(), which returns the questionText
     public String getQuestionText(){
-        retuen questionText;
+        return questionText;
     }
     //TODO: Create the getter method : public List<String> getChoices(), which returns the choices
     public List<String> getChoices(){
